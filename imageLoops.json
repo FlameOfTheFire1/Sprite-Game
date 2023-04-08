@@ -1,20 +1,16 @@
 {
     "East" :{
         "0":{
-                "Img": "images/IMG_9269.JPG",
-                 "test":"You are facing North, you can go to position 0,1"
+                "Img": "images/IMG_9269.JPG"
                  },
         "1":{
-                "Img": "images/IMG_9271.JPG",
-                "test":"You are facing south, you can go to position 1,0"
+                "Img": "images/IMG_9271.JPG"
                 },
         "2":{
-                "Img": "images/IMG_9270.JPG",
-                "test":"You are now facing East."
+                "Img": "images/IMG_9270.JPG"
                 },
         "3":{
-                "Img": "images/IMG_9272.JPG",
-                "test":"You are now facing west."
+                "Img": "images/IMG_9272.JPG"
                 }
         },
 

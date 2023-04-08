@@ -14,9 +14,15 @@
 
     <script>
 
-        //declare a class called sprite, sprite has a heading, . ..
+        //ar imageLoops;
+        var imageLoops = $.getJSON('imageLoops.json', function(data) {
+            //console.log(data);
+            //function loads json map data as a var
+        });
+
+        //declare a class called sprite, sprite has a heading, x, y
         class Sprite{
-            
+
         }
 
 
@@ -43,12 +49,14 @@
 
         }
 
-        var imageLoops;
+        
         var heading = 'Idle';
         var img = new Image();
         img.src = "0.png";
-        //img.src = imageLoops[heading]['0']["Img"];
-        //console.log(imageLoops[heading]['0']['Img']);
+        img.src = imageLoops[heading]['0']["Img"];
+        console.log(img.src);
+        //console.log("got it" + imageLoops['East']);
+        //console.log(imageLoops);
 
         var context = canvas.getContext("2d");
         var x = 10;
@@ -148,10 +156,6 @@
         };
 
 
-        $.getJSON('imageLoops.json', function(data) {
-            imageLoops = data;
-            //function loads json map data as a var
-        });
 
     </script>
 </body>
