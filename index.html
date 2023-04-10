@@ -3,7 +3,7 @@
 
 <header>
     <script type="text/javascript" src="jquery-3.6.4.js"> </script>
-    
+    <script type="text/javascript" src="imageLoops.js"></script>
 </header>
 
 <body>
@@ -14,18 +14,39 @@
 
     <script>
 
-        //ar imageLoops;
-        var imageLoops = $.getJSON('imageLoops.json', function(data) {
-            //console.log(data);
+//in penguins file, use the created json file (animation.json)
+//the file is massive and will not load before the first call_me_on_dram() function is called
+//to get around this issue, we use asynchronous calls
+
+
+        //var imageLoops;
+        $.getJSON('imageLoops.json', function(data) {
+            imageLoops = data;
+            //window.alert("data is ready");
+            is_my_data_ready = true;
             //function loads json map data as a var
         });
 
         //declare a class called sprite, sprite has a heading, x, y
         class Sprite{
-
+            constructor(){
+                this.x = 0;
+                this.y = 0;
+                heading = 'idle';
+            }
+            //init(){
+            //    heading = 'idle';
+            //    this.x = 0;
+            //    this.y = 0;
+            //}
         }
 
 
+        class ImageLoops{
+            constructor(size, animation){
+
+            }
+        }
         let canvas = document.getElementById("canvas");
 
         var init_size = true;
@@ -49,12 +70,12 @@
 
         }
 
-        
+        var is_my_data_ready = false;
         var heading = 'Idle';
         var img = new Image();
-        img.src = "0.png";
-        img.src = imageLoops[heading]['0']["Img"];
-        console.log(img.src);
+        //img.src = "0.png";
+        //img.src = imageLoops[heading]['0']["Img"];
+        //console.log(img.src);
         //console.log("got it" + imageLoops['East']);
         //console.log(imageLoops);
 
@@ -68,7 +89,12 @@
         var bk_img = null;
 
         function call_me_on_draw() {
-            window.requestAnimationFrame(call_me_on_draw);
+            //window.requestAnimationFrame(call_me_on_draw);
+
+            if(is_my_data_ready == false){
+                return;
+            }
+            img.src = imageLoops[heading]['0']["Img"];
 
             if ((time_delta + last_animation_time) > new Date().getTime()) {
 
