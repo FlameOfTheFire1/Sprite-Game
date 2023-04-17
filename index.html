@@ -29,16 +29,56 @@
         });*/
 
 
+        var imagePath = '../images/';
 
         //declare a class called sprite, sprite has a heading, x, y
         class Sprite{
+            images = []; //imageLoops
+            hidden; 
+            animation; //imageLoops animation currently running
+            animation_counter; //holds the current animation frame
+            position = [2]; //holds x and y positions, respectively
+            height; //how tall or squished the sprite is
+            width; //how thick or thin the sprite is
+            activation_radius; 
+            scale; //how big the sprite is
+
             constructor(){
                 this.x = 10;
                 this.y = 10;
-                this.heading = 'idle'; //heading can be idle, walk_E, walk_S, etc
+                this.animation = 'idle'; //heading can be idle, walk_E, walk_S, etc
+            }
+
+
+            changeImageLoops(){
+
+            if(animation != 'idle'){
+                for(var i = 0; i < 4; i++){ //store URLs
+                    images[i] = imagePath + animation + '/' + i + '.png';
+                    console.log(imagePath + animation + '/' + i + '.png');
+                }
+            }
+            else
+            {
+                for(var i = 0; i < 11; i++){ //store URLs
+                    images[i] = imagePath + animation + '/' + i + '.png';
+                    console.log(imagePath + animation + '/' + i + '.png');
+                }
+            }
+
+            }
+            
+
+            setHidden(h){
+                hidden = h;
+            }
+
+            draw(){ //draws the sprite
+
             }
         }
 
+        /*
         //array of image URLs
         var imageLoops = [];
         //path for image URLs
@@ -63,7 +103,7 @@
                 }
             }
 
-        };
+        };*/
 
         //////////////////////////////////////////////////////////////////////
         //Function resizes the canvas on size change
@@ -86,7 +126,8 @@
 
         var img = new Image();
         var penguin = new Sprite();
-        changeImageLoops(penguin.heading, imageLoops);
+        //changeImageLoops(penguin.heading, imageLoops);
+        penguin.changeImageLoops();
         var context = canvas.getContext("2d");
         var x_dist = 10;
         var y_dist = 10;

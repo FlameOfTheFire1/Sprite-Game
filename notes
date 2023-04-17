@@ -3,7 +3,7 @@ sprite class
 --should support player and nonplayer entities (fire and character)
 
 sprite class has
--draw
+-draw- array of sprites, call draw it is a method to draw the sprite
 -images array
 -animation counter (for each animation frame)
 -position(x and y)
